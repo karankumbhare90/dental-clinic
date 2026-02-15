@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Lumina Dental | Modern Family Dentistry & Cosmetic Care</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="description"
+        content="Lumina Dental Clinic offers professional family dentistry, teeth whitening, and dental implants in a modern, compassionate environment. Book your visit today." />
+    <meta name="keywords"
+        content="dentist, dental clinic, teeth whitening, dental implants, family dentistry, oral health, Lumina Dental" />
+    <meta name="author" content="Lumina Dental Clinic" />
+    <link rel="canonical" href="https://luminadental.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <!-- <meta property="og:url" content="https://luminadental.com/" /> -->
+    <meta property="og:title" content="Lumina Dental | Modern Family Dentistry" />
+    <meta property="og:description"
+        content="State-of-the-art dental care for your whole family. Experience a brighter smile with Lumina Dental." />
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1200" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lumina Dental | Modern Family Dentistry" />
+    <meta name="twitter:description"
+        content="Professional family dentistry and cosmetic care in a modern environment." />
+    <meta name="twitter:image"
+        content="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1200" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "Lumina Dental Clinic",
+      "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95",
+      "url": "https://luminadental.com",
+      "telephone": "+1-555-0123",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Smile Avenue",
+        "addressLocality": "Dental City",
+        "addressRegion": "ST",
+        "postalCode": "12345",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ],
+      "sameAs": [
+        "https://facebook.com/luminadental",
+        "https://instagram.com/luminadental"
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f6d75",
+                        "primary-dark": "#0a4f55",
+                        "primary-light": "#e0f2f3",
+                        "accent-coral": "#ff7f50",
+                        "accent-coral-dark": "#e66a3c",
+                        "secondary-mint": "#e0f2f1",
+                        "secondary-blue": "#e3f2fd",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#112021",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "recharts": "https://esm.sh/recharts@^3.7.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.564.0",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@^2.95.3"
+  }
+}
+</script>
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 antialiased">
+    <div id="root"></div>
+    <!-- Entry point script -->
+    <script type="module" src="./index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>

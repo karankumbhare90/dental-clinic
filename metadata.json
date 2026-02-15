@@ -1,0 +1,8 @@
+{
+  "name": "Lumina Dental Clinic CMS",
+  "description": "A comprehensive dental clinic management system featuring a public landing page, dynamic blog, and a robust admin dashboard for managing appointments, patients, and services.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
