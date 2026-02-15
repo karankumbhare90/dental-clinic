@@ -177,17 +177,17 @@ function BookingForm({
 
                 <div className="grid md:grid-cols-2 gap-4">
                     <input required name="firstName" placeholder="First Name"
-                        className="w-full rounded-xl border-slate-200 bg-slate-50" />
+                        className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50" />
                     <input required name="lastName" placeholder="Last Name"
-                        className="w-full rounded-xl border-slate-200 bg-slate-50" />
+                        className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50" />
                 </div>
 
                 <input required type="email" name="email"
                     placeholder="Email Address"
-                    className="w-full rounded-xl border-slate-200 bg-slate-50" />
+                    className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50" />
 
                 <select required name="service"
-                    className="w-full rounded-xl border-slate-200 bg-slate-50">
+                    className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50">
                     <option value="">Select Service</option>
                     {services.map(s => (
                         <option key={s.id} value={s.id}>{s.name}</option>
@@ -197,10 +197,10 @@ function BookingForm({
                 <div className="grid md:grid-cols-2 gap-4">
                     <input required type="date" name="date"
                         min={new Date().toISOString().split("T")[0]}
-                        className="w-full rounded-xl border-slate-200 bg-slate-50" />
+                        className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50" />
 
                     <select required name="time"
-                        className="w-full rounded-xl border-slate-200 bg-slate-50">
+                        className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50">
                         <option value="">Select Time</option>
                         {timeSlots.map(time => (
                             <option key={time} value={time}>{time}</option>
