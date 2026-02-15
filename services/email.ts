@@ -3,21 +3,18 @@
  * EMAIL SERVICE (Powered by Google Apps Script)
  */
 
-// PASTE YOUR GOOGLE WEB APP URL HERE
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxvAxOaKYG02mVzYsgZNMD4TSg3p8AdHeoPduifMMTRb2vZr6W7jyWBYOX40UDmvQLw/exec';
-
 export const emailService = {
   /**
    * Scenario 1 & 2: Notify both User and Admin of a new booking
    */
   sendNewBookingNotification: async (appointmentData: any) => {
-    if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes('YOUR_GOOGLE')) {
+    if (!import.meta.env.GOOGLE_SCRIPT_URL || import.meta.env.GOOGLE_SCRIPT_URL.includes('YOUR_GOOGLE')) {
       console.warn('Email service: Google Script URL not set.');
       return { success: false };
     }
 
     try {
-      await fetch(GOOGLE_SCRIPT_URL, {
+      await fetch(import.meta.env.GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -39,10 +36,10 @@ export const emailService = {
    * Scenario 3: Notify User when status is updated by Doctor
    */
   sendAppointmentStatusUpdate: async (appointmentData: any, status: 'confirmed' | 'cancelled') => {
-    if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes('YOUR_GOOGLE')) return { success: false };
+    if (!import.meta.env.GOOGLE_SCRIPT_URL || import.meta.env.GOOGLE_SCRIPT_URL.includes('YOUR_GOOGLE')) return { success: false };
 
     try {
-      await fetch(GOOGLE_SCRIPT_URL, {
+      await fetch(import.meta.env.GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
