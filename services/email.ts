@@ -8,6 +8,7 @@ export const emailService = {
    * Scenario 1 & 2: Notify both User and Admin of a new booking
    */
   sendNewBookingNotification: async (appointmentData: any) => {
+    console.log('Google Script URL:', import.meta.env.VITE_GOOGLE_SCRIPT_URL)
     if (!import.meta.env.VITE_GOOGLE_SCRIPT_URL || import.meta.env.VITE_GOOGLE_SCRIPT_URL.includes('YOUR_GOOGLE')) {
       console.warn('Email service: Google Script URL not set.');
       return { success: false };
