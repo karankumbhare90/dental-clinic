@@ -42,9 +42,18 @@ const HeroSection = () => {
                     <div className="order-1 lg:order-2 relative">
                         <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                             <img
-                                alt="Smile"
-                                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                                 src={getOptimizedImage("https://images.unsplash.com/photo-1606811841689-23dfddce3e95", 800, 600)}
+                                srcSet={`
+    ${getOptimizedImage("https://images.unsplash.com/photo-1606811841689-23dfddce3e95", 400, 300)} 400w,
+    ${getOptimizedImage("https://images.unsplash.com/photo-1606811841689-23dfddce3e95", 800, 600)} 800w
+  `}
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                width="800"
+                                height="600"
+                                fetchPriority="high"
+                                decoding="async"
+                                alt="Dentist treating patient"
+                                className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
                             />
                         </div>
                     </div>

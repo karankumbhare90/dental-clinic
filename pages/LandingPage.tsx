@@ -1,12 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { db } from '../services/supabase';
-import { emailService } from '../services/email';
 import HeroSection from '@/components/HeroSection';
-import Services from '@/components/Services';
 import { Service } from '@/types';
 import About from '@/components/About';
-import BookingSection from '@/components/BookingSection';
+import { lazy, Suspense } from "react";
+
+const Services = lazy(() => import("@/components/Services"));
+const BookingSection = lazy(() => import("@/components/BookingSection"));
 
 const LandingPage: React.FC = () => {
 
@@ -29,13 +30,17 @@ const LandingPage: React.FC = () => {
       <HeroSection />
 
       {/* Services Section */}
-      <Services services={services} loading={loading} />
+      <Suspense fallback={<div className="h-64" />}>
+        <Services services={services} loading={loading} />
+      </Suspense>
 
       {/* About Section */}
       <About />
 
       {/* Booking Section */}
-      <BookingSection services={services} />
+      <Suspense fallback={<div className="h-64" />}>
+        <BookingSection services={services} />
+      </Suspense>
     </div>
   );
 };

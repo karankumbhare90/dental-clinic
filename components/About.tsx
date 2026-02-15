@@ -47,12 +47,21 @@ export default function About() {
                         <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[3/4]">
                             <img
                                 alt={aboutContent.image.alt}
-                                className="w-full h-full object-cover"
+                                loading="lazy"
+                                decoding="async"
+                                width={600}
+                                height={800}
+                                className="w-full h-auto object-cover"
                                 src={getOptimizedImage(
                                     aboutContent.image.src,
-                                    aboutContent.image.width,
-                                    aboutContent.image.height
+                                    600,
+                                    800
                                 )}
+                                srcSet={`
+    ${getOptimizedImage(aboutContent.image.src, 300, 400)} 300w,
+    ${getOptimizedImage(aboutContent.image.src, 600, 800)} 600w
+  `}
+                                sizes="(max-width: 768px) 100vw, 40vw"
                             />
                         </div>
                     </div>

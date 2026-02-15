@@ -21,6 +21,7 @@ export default function BlogCard({ post }: BlogCardProps) {
                         600,
                         400
                     )}
+                    loading="lazy"
                 />
                 <div className="absolute top-4 left-4 bg-primary/90 px-3 py-1 rounded text-[10px] font-bold text-white uppercase tracking-widest">
                     {post.category ?? 'General'}

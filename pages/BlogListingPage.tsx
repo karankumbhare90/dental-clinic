@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { db } from '../services/supabase'
 import { BlogPost } from '../types'
 import BlogSkeleton from '@/components/BlogSkeleton'
 import BlogCard from '@/components/BlogCard'
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const pageContent = {
   badge: "Our Blog",
@@ -111,7 +111,7 @@ const BlogListingPage: React.FC = () => {
                         : 'bg-white hover:bg-primary hover:text-white border-slate-200'
                         }`}
                     >
-                      <MdOutlineKeyboardArrowLeft />
+                      <ChevronLeft />
                     </button>
 
                     {Array.from({ length: totalPages }).map((_, index) => {
@@ -139,7 +139,7 @@ const BlogListingPage: React.FC = () => {
                         : 'bg-white hover:bg-primary hover:text-white border-slate-200'
                         }`}
                     >
-                      <MdOutlineKeyboardArrowRight />
+                      <ChevronRight />
                     </button>
                   </div>
                 )}

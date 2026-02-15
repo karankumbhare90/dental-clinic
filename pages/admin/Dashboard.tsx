@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, lazy, Suspense } from 'react'
 import {
   Users,
   Calendar,
@@ -8,7 +8,9 @@ import { db } from '../../services/supabase'
 import { Appointment } from '../../types'
 import StatCard from './StatCard'
 import RecentAppointmentsTable from './RecentAppointmentsTable'
-import AppointmentTrendsCard from './AppointmentTrendsCard'
+const AppointmentTrendsCard = lazy(
+  () => import("./AppointmentTrendsCard")
+)
 import ScheduleSidebarCard from './ScheduleSidebarCard'
 
 /* -----------------------------
@@ -133,7 +135,9 @@ const AdminDashboard: React.FC = () => {
 
       {/* Chart + Schedule */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <AppointmentTrendsCard data={chartData} />
+        <Suspense fallback={<div>Loading chart...</div>}>
+          <AppointmentTrendsCard data={chartData} />
+        </Suspense>
         <ScheduleSidebarCard appointments={appointments} />
       </div>
 

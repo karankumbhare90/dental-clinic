@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect, createContext, useContext } from 'react';
+import React, { useState, useEffect, createContext, useContext, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { supabase } from './services/supabase';
@@ -23,7 +22,7 @@ import ServiceManager from './pages/admin/ServiceManager';
 import ServiceForm from './pages/admin/ServiceForm';
 import BlogEditor from './pages/admin/BlogEditor';
 import BlogPostForm from './pages/admin/BlogPostForm';
-import AdminLayout from './pages/admin/AdminLayout';
+const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"))
 
 // Context
 const AuthContext = createContext<{ user: any; loading: boolean; login: any; logout: any }>({
