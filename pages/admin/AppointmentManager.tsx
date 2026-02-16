@@ -58,18 +58,18 @@ const AppointmentManager: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center flex-wrap gap-4">
         <h2 className="text-2xl font-bold text-slate-800">Appointments</h2>
-        <div className="bg-white p-1 rounded-xl border border-slate-200 flex shadow-sm">
+        <div className="w-full sm:w-auto bg-white p-1.5 rounded-xl border border-slate-200 grid grid-cols-2 shadow-sm">
           <button
             onClick={() => setView('list')}
-            className={`px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all ${view === 'list' ? 'bg-primary text-white shadow-sm' : 'text-slate-400 hover:bg-slate-50'}`}
+            className={`px-4 py-2 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all ${view === 'list' ? 'bg-primary text-white shadow-sm' : 'text-slate-400 hover:bg-slate-50'}`}
           >
             <List className="w-4 h-4" /> List View
           </button>
           <button
             onClick={() => setView('calendar')}
-            className={`px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all ${view === 'calendar' ? 'bg-primary text-white shadow-sm' : 'text-slate-400 hover:bg-slate-50'}`}
+            className={`px-4 py-2 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all ${view === 'calendar' ? 'bg-primary text-white shadow-sm' : 'text-slate-400 hover:bg-slate-50'}`}
           >
             <CalendarIcon className="w-4 h-4" /> Calendar
           </button>
@@ -151,7 +151,7 @@ const AppointmentManager: React.FC = () => {
           </div>
         </div>
       ) : (
-        <div className="bg-white rounded-3xl shadow-sm border border-slate-100 p-8">
+        <div className="bg-white rounded-3xl shadow-sm border border-slate-100 p-5 md:p-8">
           <div className="flex justify-between items-center mb-10">
             <h3 className="text-xl font-bold text-slate-800">
               {currentMonth.toLocaleString('default', { month: 'long', year: 'numeric' })}

@@ -29,8 +29,8 @@ const ServiceManager: React.FC = () => {
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-between">
-        <div className="flex gap-10">
+      <div className="flex items-center justify-between flex-wrap gap-4">
+        <div className="w-full md:w-auto flex gap-10">
           <div>
             <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">Total Treatments</p>
             <h3 className="text-3xl font-bold text-slate-800">{services.length}</h3>
@@ -41,7 +41,7 @@ const ServiceManager: React.FC = () => {
             <h3 className="text-3xl font-bold text-primary">{services.filter(s => s.is_active).length}</h3>
           </div>
         </div>
-        <Link to="/admin/services/new" className="flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 transition-all active:scale-95">
+        <Link to="/admin/services/new" className="w-full md:w-auto flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 transition-all active:scale-95">
           <Plus className="w-5 h-5" /> New Service
         </Link>
       </div>

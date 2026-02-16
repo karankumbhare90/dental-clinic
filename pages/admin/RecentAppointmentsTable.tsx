@@ -33,7 +33,7 @@ const RecentAppointmentsTable: React.FC<RecentAppointmentsTableProps> = ({
                             <th className="px-8 py-4 font-semibold">Service</th>
                             <th className="px-8 py-4 font-semibold">Date & Time</th>
                             <th className="px-8 py-4 font-semibold">Status</th>
-                            <th className="px-8 py-4 font-semibold text-right">Actions</th>
+                            {/* <th className="px-8 py-4 font-semibold text-right">Actions</th> */}
                         </tr>
                     </thead>
 
@@ -93,11 +93,11 @@ const RecentAppointmentsTable: React.FC<RecentAppointmentsTableProps> = ({
                                         </span>
                                     </td>
 
-                                    <td className="px-8 py-5 text-right">
+                                    {/* <td className="px-8 py-5 text-right">
                                         <button className="text-slate-400 hover:text-primary transition-colors p-1">
                                             <MoreVertical className="w-5 h-5" />
                                         </button>
-                                    </td>
+                                    </td> */}
                                 </tr>
                             ))
                         ) : (

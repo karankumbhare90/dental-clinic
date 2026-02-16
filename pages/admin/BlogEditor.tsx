@@ -30,12 +30,12 @@ const BlogEditor: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center flex-wrap gap-4">
         <div>
           <h2 className="text-2xl font-bold">Health Blog Articles</h2>
           <p className="text-slate-500 text-sm">Educational content for your patients</p>
         </div>
-        <Link to="/admin/blog/new" className="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-lg shadow-primary/20 transition-all active:scale-95">
+        <Link to="/admin/blog/new" className="w-full md:w-auto bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-lg shadow-primary/20 transition-all active:scale-95">
           <Plus className="w-5 h-5" /> Create Article
         </Link>
       </div>

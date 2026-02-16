@@ -115,7 +115,7 @@ export default function BookingSection({ services }: BookingSectionProps) {
 
 function ContactPanel() {
     return (
-        <div className="bg-primary text-white p-10 flex flex-col justify-between">
+        <div className="bg-primary text-white p-6 md:p-8 lg:p-10 flex flex-col justify-between">
             <div>
                 <h3 className="text-2xl font-bold mb-4">
                     {bookingContent.title}
@@ -172,61 +172,146 @@ function BookingForm({
     }
 
     return (
-        <div className="p-10">
-            <form onSubmit={onSubmit} className="space-y-6">
+        <div className="p-6 md:p-8 lg:p-10">
+            <form onSubmit={onSubmit} className="space-y-6" noValidate>
 
                 <div className="grid md:grid-cols-2 gap-4">
-                    <input required name="firstName" placeholder="First Name"
-                        className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50" />
-                    <input required name="lastName" placeholder="Last Name"
-                        className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50" />
+
+                    <div>
+                        <label htmlFor="firstName" className="sr-only">
+                            First Name
+                        </label>
+                        <input
+                            required
+                            id="firstName"
+                            name="firstName"
+                            placeholder="First Name"
+                            autoComplete="given-name"
+                            className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-primary"
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="lastName" className="sr-only">
+                            Last Name
+                        </label>
+                        <input
+                            required
+                            id="lastName"
+                            name="lastName"
+                            placeholder="Last Name"
+                            autoComplete="family-name"
+                            className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-primary"
+                        />
+                    </div>
+
                 </div>
 
-                <input required type="email" name="email"
-                    placeholder="Email Address"
-                    className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50" />
+                <div>
+                    <label htmlFor="email" className="sr-only">
+                        Email Address
+                    </label>
+                    <input
+                        required
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="Email Address"
+                        autoComplete="email"
+                        inputMode="email"
+                        className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                </div>
 
-                <select required name="service"
-                    className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50">
-                    <option value="">Select Service</option>
-                    {services.map(s => (
-                        <option key={s.id} value={s.id}>{s.name}</option>
-                    ))}
-                </select>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                    <input required type="date" name="date"
-                        min={new Date().toISOString().split("T")[0]}
-                        className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50" />
-
-                    <select required name="time"
-                        className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50">
-                        <option value="">Select Time</option>
-                        {timeSlots.map(time => (
-                            <option key={time} value={time}>{time}</option>
+                <div>
+                    <label htmlFor="service" className="sr-only">
+                        Select Service
+                    </label>
+                    <select
+                        required
+                        id="service"
+                        name="service"
+                        className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                        <option value="">Select Service</option>
+                        {services.map(s => (
+                            <option key={s.id} value={s.id}>
+                                {s.name}
+                            </option>
                         ))}
                     </select>
                 </div>
 
-                <textarea name="message"
-                    placeholder="Any specific concerns?"
-                    className="w-full rounded-xl border-slate-200 bg-slate-50 h-28" />
+                <div className="grid md:grid-cols-2 gap-4">
+
+                    <div>
+                        <label htmlFor="date" className="sr-only">
+                            Preferred Date
+                        </label>
+                        <input
+                            required
+                            id="date"
+                            type="date"
+                            name="date"
+                            min={new Date().toISOString().split("T")[0]}
+                            className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-primary"
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="time" className="sr-only">
+                            Preferred Time
+                        </label>
+                        <select
+                            required
+                            id="time"
+                            name="time"
+                            className="booking-form-input w-full rounded-xl border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-primary"
+                        >
+                            <option value="">Select Time</option>
+                            {timeSlots.map(time => (
+                                <option key={time} value={time}>
+                                    {time}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
+                </div>
+
+                <div>
+                    <label htmlFor="message" className="sr-only">
+                        Additional Notes
+                    </label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Any specific concerns?"
+                        rows={4}
+                        className="w-full rounded-xl border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                </div>
 
                 <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full bg-accent-coral hover:bg-accent-coral-dark text-white font-bold py-4 rounded-xl shadow-lg transition-all disabled:opacity-50"
+                    aria-disabled={status === 'loading'}
+                    aria-busy={status === 'loading'}
+                    className="w-full bg-accent-coral hover:bg-accent-coral-dark text-white font-bold py-4 rounded-xl shadow-lg transition-all disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-accent-coral"
                 >
                     {status === 'loading' ? 'Submitting...' : 'Submit Request'}
                 </button>
 
                 {status === 'error' && (
-                    <p className="text-red-500 text-sm">
+                    <p
+                        className="text-red-500 text-sm"
+                        role="alert"
+                    >
                         Something went wrong. Please try again.
                     </p>
                 )}
 
-            </form>
+                </form>
         </div>
     )
 }

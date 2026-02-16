@@ -128,7 +128,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
             </aside>
 
             <div className="flex-1 flex flex-col h-full min-w-0">
-                <header className="h-20 bg-white dark:bg-background-dark border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 z-10">
+                <header className="h-20 bg-white dark:bg-background-dark border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-5 md:px-8 z-10">
                     <div className="flex items-center gap-4">
                         <button
                             className="lg:hidden p-2 text-slate-500 hover:bg-slate-100 rounded-lg"
@@ -145,6 +145,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
                     <div className="flex items-center gap-4">
                         <Link
                             to="/"
+                            target="_blank"
                             className="hidden md:flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-primary"
                         >
                             View Website
@@ -153,7 +154,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
                     </div>
                 </header>
 
-                <div className="flex-1 overflow-y-auto p-8 custom-scrollbar">
+                <div className="flex-1 overflow-y-auto p-5 md:p-8 custom-scrollbar">
                     {children ?? null}
                 </div>
             </div>
