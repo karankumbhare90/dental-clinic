@@ -39,6 +39,8 @@ const ScheduleSidebarCard: React.FC<ScheduleSidebarCardProps> = ({
             .slice(0, 2)
     }, [appointments])
 
+    console.log(upcomingAppointments)
+
     const pendingToday = useMemo(() => {
         const today = new Date().toDateString()
 

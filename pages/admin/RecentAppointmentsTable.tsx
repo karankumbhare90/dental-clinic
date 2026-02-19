@@ -87,9 +87,10 @@ const RecentAppointmentsTable: React.FC<RecentAppointmentsTableProps> = ({
                                                     }`}
                                             />
                                             {(appt.status ?? 'unknown')
-                                                .charAt(0)
-                                                .toUpperCase() +
-                                                (appt.status ?? '').slice(1)}
+  .split('_')
+  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(' ')
+}
                                         </span>
                                     </td>
 
