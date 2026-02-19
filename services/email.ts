@@ -55,5 +55,67 @@ export const emailService = {
       console.error('GAS Email Error:', error);
       return { success: false };
     }
-  }
+  },
+
+  /**
+   * Scenario 4 : Reschedule Mail
+   */
+
+  sendRescheduleEmail: async (appointmentData: any) => {
+    if (
+      !import.meta.env.VITE_GOOGLE_SCRIPT_URL ||
+      import.meta.env.VITE_GOOGLE_SCRIPT_URL.includes('YOUR_GOOGLE')
+    ) {
+      console.warn('Email service: Google Script URL not set.');
+      return { success: false };
+    }
+
+    try {
+      await fetch(import.meta.env.VITE_GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          type: 'RESCHEDULE',
+          payload: appointmentData
+        }),
+      });
+
+      return { success: true };
+    } catch (error) {
+      console.error('GAS Email Error:', error);
+      return { success: false };
+    }
+  },
+
+  /**
+   * Confirm Reschedule
+   */
+
+  sendRescheduleConfirmedEmail: async (appointmentData: any) => {
+    if (!import.meta.env.VITE_GOOGLE_SCRIPT_URL) {
+      return { success: false }
+    }
+  
+    try {
+      await fetch(import.meta.env.VITE_GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          type: 'RESCHEDULE_CONFIRMED',
+          payload: appointmentData
+        }),
+      })
+  
+      return { success: true }
+    } catch (error) {
+      console.error('Email Error:', error)
+      return { success: false }
+    }
+  },
 };

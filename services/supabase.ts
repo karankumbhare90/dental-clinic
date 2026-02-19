@@ -21,9 +21,23 @@ export const db = {
   },
   appointments: {
     getAll: async () => supabase.from('appointments').select('*').order('preferred_date', { ascending: true }),
+    getById: async (id: string) =>
+      supabase
+        .from('appointments')
+        .select('*')
+        .eq('id', id)
+        .single(),
     create: async (appointment: any) => supabase.from('appointments').insert(appointment).select(),
-    updateStatus: async (id: string, status: string) => supabase.from('appointments').update({ status }).eq('id', id).select()
+    updateStatus: async (id: string, status: string) => supabase.from('appointments').update({ status }).eq('id', id).select(),
+    // ✅ ADD THIS
+    update: async (id: string, updates: any) =>
+      supabase
+        .from('appointments')
+        .update(updates)
+        .eq('id', id)
+        .select(),
   },
+  
   blog: {
     getAll: async () => supabase.from('blog_posts').select('*').order('created_at', { ascending: false }),
     getPaginated: async (

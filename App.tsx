@@ -22,6 +22,8 @@ import ServiceManager from './pages/admin/ServiceManager';
 import ServiceForm from './pages/admin/ServiceForm';
 import BlogEditor from './pages/admin/BlogEditor';
 import BlogPostForm from './pages/admin/BlogPostForm';
+import ConfirmReschedule from './pages/ConfirmReschedule';
+import MinimalLayout from './components/MinimalLayout';
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"))
 
 // Context
@@ -66,6 +68,9 @@ const App: React.FC = () => {
           <Route path="/" element={<PublicLayout><LandingPage /></PublicLayout>} />
           <Route path="/blog" element={<PublicLayout><BlogListingPage /></PublicLayout>} />
           <Route path="/blog/:slug" element={<PublicLayout><BlogDetailPage /></PublicLayout>} />
+          <Route element={<MinimalLayout />}>
+  <Route path="/confirm-reschedule" element={<ConfirmReschedule />} />
+</Route>
           <Route path="/login" element={<LoginPage />} />
 
           {/* Admin Routes */}
